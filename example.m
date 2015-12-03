@@ -1,0 +1,28 @@
+% This script launches a Distortion Analysis based on two sets of ground control points
+% Written by Manuel Claeys Bouuaert, 2015
+
+clear
+if(~isdeployed)
+    addpath(genpath('.'))
+end
+
+% Set preferences
+spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. Default: 500
+spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. Default: 8000
+spatResType = 'absolute'; % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers
+scalingReference = 'helmert'; % 'none' or 'helmert'
+
+doDisplacementVectors = 1; % Should warped grid be written out?
+doDistortionGrid = 1; % Should warped grid be written out?
+doDifferentialDistortionAnalysis = 1; % Should Differential Distortion Analysis be written out?
+doIndicatrices = 1; % Should Tissot indicators be written out?
+
+doPlots = 0; % Should plots be made?
+
+% Load ground control points 
+points = dlmread('data_sample/points.txt')';
+gcps_d = points(4:5,:);
+gcps_c = points(2:3,:);
+
+% Perform analysis
+distortionAnalysis(gcps_d,gcps_c,spatRes_d,spatBuffer_d,spatResType,scalingReference,doDisplacementVectors,doDistortionGrid,doDifferentialDistortionAnalysis,doIndicatrices,doPlots)
