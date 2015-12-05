@@ -1,4 +1,4 @@
-% This script launches a Distortion Analysis based on two sets of ground control points
+% This script launches a distortion analysis based on two sets of ground control points
 % Written by Manuel Claeys Bouuaert, 2015
 
 clear
@@ -7,9 +7,9 @@ if(~isdeployed)
 end
 
 % Set preferences
-spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. Default: 500
-spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. Default: 8000
-spatResType = 'absolute'; % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers
+spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. 500 for sample data
+spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. 8000 for sample data
+spatResType = 'absolute'; % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers (see how those are treated in distortionAnalysis)
 scalingReference = 'helmert'; % 'none' or 'helmert'
 
 doDisplacementVectors = 1; % Should warped grid be written out?
