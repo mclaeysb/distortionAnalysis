@@ -189,6 +189,13 @@ if doDifferentialDistortionAnalysis|doIndicatrices
 	toc
 end
 
+% Create output folder if it doesn't exits
+nameOutputFolder = 'output';
+if ~exist(nameOutputFolder, 'dir')
+  mkdir(nameOutputFolder);
+  addpath(nameOutputFolder);
+end
+
 % Write out displacement vectors
 if doDisplacementVectors
 	disp(['Writing out displacement vectors'])
