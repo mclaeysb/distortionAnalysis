@@ -6,6 +6,11 @@ if(~isdeployed)
     addpath(genpath('.'))
 end
 
+% Load ground control points 
+points = dlmread('data_sample/points.txt')';
+gcps_d = points(4:5,:);
+gcps_c = points(2:3,:);
+
 % Set preferences
 spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. 500 for sample data
 spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. 8000 for sample data
@@ -18,11 +23,6 @@ doDifferentialDistortionAnalysis = 1; % Should Differential Distortion Analysis 
 doIndicatrices = 1; % Should Tissot indicators be written out?
 
 doPlots = 0; % Should plots be made?
-
-% Load ground control points 
-points = dlmread('data_sample/points.txt')';
-gcps_d = points(4:5,:);
-gcps_c = points(2:3,:);
 
 % Perform analysis
 distortionAnalysis(gcps_d,gcps_c,spatRes_d,spatBuffer_d,spatResType,scalingReference,doDisplacementVectors,doDistortionGrid,doDifferentialDistortionAnalysis,doIndicatrices,doPlots)
