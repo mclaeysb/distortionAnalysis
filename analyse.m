@@ -1,25 +1,10 @@
-% This script launches a Distortion Analysis or Triangle Area Scaling Analsis based on two sets of ground control points
+% This script launches a distortion analysis or triangle area scaling analsis based on two sets of ground control points
 % Written by Manuel Claeys Bouuaert, 2015
 
 clear
 if(~isdeployed)
     addpath(genpath('.'))
 end
-
-% Set preferences
-spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. Default: 500
-spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. Default: 8000
-spatResType = 'absolute'; % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers
-scalingReference = 'helmert'; % 'none' or 'helmert'
-
-doDisplacementVectors = 1; % Should warped grid be written out?
-doDistortionGrid = 1; % Should warped grid be written out?
-doDifferentialDistortionAnalysis = 1; % Should Differential Distortion Analysis be written out?
-doIndicatrices = 0; % Should Tissot indicators be written out?
-
-doTriangles = 0; % Should Triangle Area Scale Analysis be written out?
-
-doPlots = 0; % Should plots be made?
 
 % Load ground control points 
 pathToData = '/Users/Manuel/Google Drive/PhD Shared Ferraris';
@@ -88,6 +73,21 @@ data(any(data==0,2),:)=[]; % Always: select only rows with no zero's
 gcps_d = data(:,1:2)';
 gcps_c = data(:,3:4)';
 %}
+
+% Set preferences
+spatRes_d = 500; % Spatial Resolution in the domain when creating mesh. Default: 500
+spatBuffer_d = 8000; % Spatial buffer for mesh in the codomain. Default: 8000
+spatResType = 'absolute'; % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers
+scalingReference = 'helmert'; % 'none' or 'helmert'
+
+doDisplacementVectors = 1; % Should warped grid be written out?
+doDistortionGrid = 1; % Should warped grid be written out?
+doDifferentialDistortionAnalysis = 1; % Should Differential Distortion Analysis be written out?
+doIndicatrices = 0; % Should Tissot indicators be written out?
+
+doTriangles = 0; % Should Triangle Area Scale Analysis be written out?
+
+doPlots = 0; % Should plots be made?
 
 % Perform analysis
 distortionAnalysis(gcps_d,gcps_c,spatRes_d,spatBuffer_d,spatResType,scalingReference,doDisplacementVectors,doDistortionGrid,doDifferentialDistortionAnalysis,doIndicatrices,doPlots)
