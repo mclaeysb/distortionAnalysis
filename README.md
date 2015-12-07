@@ -12,9 +12,11 @@ Hence the study of distortions in old maps.
 
 This code takes as input a set of common ground control points, identified both on the old map and on a modern reference map.
 Based on these points, an interpolation is constructed between both maps. 
-From this interpolation, the distortions (such as stretching or shearing) are computed using common distortion visualisation techniques, including displacement vectors, distortion grids, Tissot indicatrices and a new technique called **Differential Distortion Analysis**.
+From this interpolation, the distortions are computed using common distortion visualisation techniques, including displacement vectors, distortion grids, Tissot indicatrices and a new technique called **Differential Distortion Analysis**.
 
-The output is a set of `.WKT` and `.csv` files with the corresponding distortion features and values.
+The output consists of a set of `.WKT` files representing the displacement vectors, distortion grid and Tissot indicatrices, and a `.csv` file with the values of distortion measures, such as the **area distortion** `log2sigma` and **angular distortion** `2Omega`, computed at a number of mesh points and ground control points.
+
+For further interpretation, visualise the output documents in a (web-)GIS application. For optimal visualisations, interpolate the point-wise results of the `.csv` file to create a continuous distortion raster image.
 
 Bonus: this code can also be used in similar settings where 2D objects are warped, such as abstracted maps (e.g. transit maps), mental maps, maps of deformed terrain (glaciers, tectonics), etc. Feel inspired!
 
@@ -26,8 +28,6 @@ In order to build the interpolation, you should have access to either the Octave
 (The Octave Splines Package can be installed using `pkg install -forge -global -auto splines`)
 
 The `example.m` file demonstrates how to load data, set optional parameters and call the main function `distortionAnalysis.m`.
-
-For further usage, visualise the output documents in a (web-)GIS application. Interpolate the point-wise results in the `.csv` files for optimal visualisations.
 
 ## How to cite it
 
