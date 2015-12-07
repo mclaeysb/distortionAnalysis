@@ -25,4 +25,5 @@ doIndicatrices = 1; % Should Tissot indicators be written out?
 doPlots = 0; % Should plots be made?
 
 % Perform analysis
+% distortionAnalysis(gcps_d,gcps_c) % Simplest call to distortionAnalysis.m. Default values specified in distortionAnalysis.m will be used in stead of used defined preferences.
 distortionAnalysis(gcps_d,gcps_c,spatRes_d,spatBuffer_d,spatResType,scalingReference,doDisplacementVectors,doDistortionGrid,doDifferentialDistortionAnalysis,doIndicatrices,doPlots)
