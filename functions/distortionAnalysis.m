@@ -94,7 +94,7 @@ if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 	else
 	    % Spline is stored in stform
 	    if nGcps>=729
-	        warning('You are using 729 control points or more. Unless you are using an addapted version of tpaps.m, the Thin Plate Spline will be solved approximately, possibly taking a lot of time and yielding inadequate results.')
+	        warning('You are using 729 control points or more. Unless you are using an adapted version of tpaps.m, the Thin Plate Spline will be solved approximately, possibly taking a lot of time and yielding inadequate results.')
 	    end
 	    tps = tpaps(gcps_d, gcps_c, 1);
 	end
@@ -166,7 +166,7 @@ if doDifferentialDistortionAnalysis|doIndicatrices
 	    aps_d_pd01 = fnval(tps_01,aps_d);    
 	end
 	toc
-	disp(['Calulating distortion in aps'])
+	disp(['Calculating distortion in aps'])
 	tic
 	aps_c_E = sum(aps_d_pd10.^2,1);
 	aps_c_G = sum(aps_d_pd01.^2,1);
