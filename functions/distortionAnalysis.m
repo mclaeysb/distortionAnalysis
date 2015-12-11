@@ -5,10 +5,10 @@ function distortionAnalysis(gcps_d,gcps_c,varargin)
 % Then, it calculates distortion measures on a mesh and in the control points
 % Distortion measures include: Displacement Vectors, Distortion Grid, Indicatrices of Tissot and Differential Distortion Analysis
 % 
-% This function requires the Octave Splines Package or Matlab CurveFitting Toolbox
-% Install Splines Package in Octave using: pkg install -forge -global -auto splines
+% This function requires the Octave splines package or Matlab CurveFitting Toolbox
+% Install the splines package in Octave using: pkg install -forge -global -auto splines
 % 
-% gcps_d and gcps_c are expected be 2-by-n matrics, where n is the number of ground control points
+% gcps_d and gcps_c are expected to be 2-by-n matrices, where n is the number of ground control points
 % 
 % Nomenclature:
 % '..._d' = points in the 'domain' = 'to'-domain = 'centers' = 'reference'.
@@ -18,8 +18,8 @@ function distortionAnalysis(gcps_d,gcps_c,varargin)
 % 'aps' = all points (mps + gcps)
 % 
 % Computed distortion values are displayed in codomain
-% If more then 729 points are loaded, Matlab's Thin Plate Spline fuction tpaps() will compute the spline approximately and no longer exactly
-% To prevent this, use an edited version of tpaps.m or use the Octave Splines Package
+% If more than 729 points are loaded, Matlab's Thin Plate Spline fuction tpaps() will compute the spline approximately and no longer exactly
+% To prevent this, use an edited version of tpaps.m or use the Octave splines package
 % 
 % Written by Manuel Claeys Bouuaert, 2015
 
@@ -30,11 +30,11 @@ if isOctave
     page_output_immediately(1, 'local');
 end
 
-% Process data input: overwrite defaulf values with user specified values
+% Process data input: overwrite default values with user specified values
 numvarargs = length(varargin);
 optargs = {100 20 'relative' 'helmert' 1 1 1 1 0};
 if numvarargs > length(optargs)
-    error ('To many input arguments')
+    error ('Too many input arguments')
 end
 [optargs{1:numvarargs}] = varargin{:};
 [spatRes_d,spatBuffer_d,spatResType,scalingReference,doDisplacementVectors,doDistortionGrid,doDifferentialDistortionAnalysis,doIndicatrices,doPlots] = optargs{:};
@@ -43,7 +43,7 @@ end
 if any(size(gcps_d)~=size(gcps_c))
     error('Loaded ground control points have different dimensions')
 elseif size(gcps_d,1)~=2
-    error('Input is expect to be 2-by-nGcps matrics')
+    error('Input is expected to be 2-by-nGcps matrices')
 elseif size(gcps_d,2)==0
     error('Empty list of ground control points')
 end
@@ -78,10 +78,10 @@ spatRes_c = spatRes_d*scaling_helmert;
 spatBuffer_c = spatBuffer_d*scaling_helmert;
 disp(['A Helmert transform from domain to codomain yields scaling of ',num2str(scaling_helmert),''])
 
-% Only continu if needed
+% Only continue if needed
 if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 	% Compute thin plate spline function
-	disp(['A reference scaling of ',num2str(scaling_ref),' will used for distortion measures'])
+	disp(['A reference scaling of ',num2str(scaling_ref),' will be used for distortion measures'])
 	disp(['Building Thin Plate Spline from ',num2str(nGcps),' gcps'])
 	tic
 	% Note: in tpaps, in both Matlab and Octave, the third parameter is the smoothing parameter p, where p=0 means smoothing is applied, and p=1 means no smoothing is applied
@@ -93,7 +93,7 @@ if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 	    end
 	else
 	    % Spline is stored in stform
-	    if nGcps>=729
+	    if nGcps>=729 		% turn this 'magic number' into a constant instead
 	        warning('You are using 729 control points or more. Unless you are using an adapted version of tpaps.m, the Thin Plate Spline will be solved approximately, possibly taking a lot of time and yielding inadequate results.')
 	    end
 	    tps = tpaps(gcps_d, gcps_c, 1);
@@ -102,7 +102,7 @@ if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 
 	% Create mesh in domain: replicate grid vectors xgv and ygv to produce a full grid
 	disp(['Creating mesh in domain'])
-	disp(['Its has a spatial resolution of ',num2str(spatRes_d),' units, and a buffer of ',num2str(spatBuffer_d),' units'])
+	disp(['It has a spatial resolution of ',num2str(spatRes_d),' units, and a buffer of ',num2str(spatBuffer_d),' units'])
 	tic
 	xgv_d = (min(gcps_d(1,:))-spatBuffer_d):spatRes_d:(max(gcps_d(1,:))+spatBuffer_d);
 	ygv_d = (min(gcps_d(2,:))-spatBuffer_d):spatRes_d:(max(gcps_d(2,:))+spatBuffer_d);
@@ -119,7 +119,7 @@ if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 
 	% Transpose mesh to codomain 
 	disp(['Transposing mesh to codomain'])
-	disp(['Its has an average spatial resolution of ',num2str(spatRes_c),' units, and a buffer of ',num2str(spatBuffer_c),' units'])
+	disp(['It has an average spatial resolution of ',num2str(spatRes_c),' units, and a buffer of ',num2str(spatBuffer_c),' units'])
 	tic
 	if isOctave
 	    mps_c = zeros(2,nMps);
@@ -134,7 +134,7 @@ if doDistortionGrid|doDifferentialDistortionAnalysis|doIndicatrices
 	toc
 end
 
-% Only continu if needed
+% Only continue if needed
 if doDifferentialDistortionAnalysis|doIndicatrices
 	% Concatenate gcps and mps
 	disp(['Concatenating all points (mps + gcps = aps)'])
@@ -189,7 +189,7 @@ if doDifferentialDistortionAnalysis|doIndicatrices
 	toc
 end
 
-% Create output folder if it doesn't exits
+% Create output folder if it doesn't exists
 nameOutputFolder = 'output';
 if ~exist(nameOutputFolder, 'dir')
   mkdir(nameOutputFolder);
@@ -279,7 +279,7 @@ if doPlots
 	    disp(['Plotting'])
 	    tic
 	    % Set plot options
-	    qp = 0.01; % Cumulative probability for quantiles, in [0,0.5]. Used for soft colorbar rage. Set value to 0 to work with min and max.
+	    qp = 0.01; % Cumulative probability for quantiles, in [0,0.5]. Used for soft colorbar range. Set value to 0 to work with min and max.
 	    min_log2sigma = quantile(aps_c_log2sigma,qp); max_log2sigma = quantile(aps_c_log2sigma,1-qp);
 	    maxDiff_log2sigma = max(abs(min_log2sigma),max_log2sigma);
 	    cmin_log2sigma = -maxDiff_log2sigma; cmax_log2sigma = maxDiff_log2sigma; % colorbar centered around 0

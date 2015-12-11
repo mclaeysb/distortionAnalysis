@@ -1,6 +1,6 @@
 function [ps_ref_to_target,a,translation,rotation,scaling,shearing,v,s0]=affine(ps_ref,ps_target,verbose,doPlots)
 
-% This script calculates the Affine transform parameters of two datasets
+% This script calculates the affine transform parameters of two datasets
 % ps_... inputs must both have dimensions 2*nPoints
 % Written by Manuel Claeys Bouuaert, 2015
 
@@ -32,7 +32,7 @@ translation = [a(3) a(6)];
 rotation = atan(a(2)/a(1));
 scaling = sqrt(a(1)^2+a(2)^2);
 shearing = (a(4)+a(2))/a(1);
-% Not 100% sure about these equations. a(2) and a(4) could have to be swaped
+% Not 100% sure about these equations. a(2) and a(4) might need to be swapped
 % see: http://math.stackexchange.com/questions/612006/decomposing-an-affine-transformation
 
 % compute distance errors and mean error
