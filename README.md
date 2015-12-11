@@ -24,8 +24,8 @@ Bonus: this code can also be used in similar settings where 2D objects are warpe
 
 The `.m` code is fully Matlab and Octave compatible.
 
-In order to build the interpolation, you should have access to either the Octave Splines Package or Matlab CurveFitting Toolbox.
-(The Octave Splines Package can be installed using `pkg install -forge -global -auto splines`)
+In order to build the interpolation, you should have access to either the Octave splines package or Matlab CurveFitting Toolbox.
+(The Octave splines package can be installed using `pkg install -forge -global -auto splines`)
 
 The `example.m` file demonstrates how to load data, set optional parameters and call the main function `distortionAnalysis.m`.
 
@@ -47,6 +47,6 @@ The sample data ground control points are courtesy of Martin Rickenbacher (Bern)
 
 This sample data is similar to the one used in the [MapAnalyst](<http://www.mapanalyst.org>) software by Bernhard Jenny, which has inspired us during our work.
 
-### Octave Splines package
+### Octave splines package
 
-The [Splines Package](http://octave.sourceforge.net/splines) for GNU Octave is written by Nir Y. Krakauer and others. It features the commands used in this code since version 1.2.9.
+The [splines package](http://octave.sourceforge.net/splines) for GNU Octave is written by Nir Y. Krakauer and others. It features the commands used in this code since version 1.2.9.
