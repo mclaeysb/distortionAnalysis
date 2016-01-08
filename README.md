@@ -43,13 +43,13 @@ The `example.m` file demonstrates how to load data, set optional parameters and 
 
 ## How to cite it
 
-### Code
+### Code and publication
 
 Manuel Claeys Boùùaert wrote this code in 2015 for a project analysing distortion in the 1777 '[Carte de Cabinet](http://belgica.kbr.be/nl/coll/cp/cpFerraris_nl.html)' of the Austrian Netherlands by count de Ferraris.
 
 If you want use this code for scientific work, **please refer to the following publication**:
 
-*Claeys Boùùaert, M., De Baets, B., Vervust, S., Neutens, T., De Maeyer, P., Van De Weghe N., 2015. Computation and visualisation of the accuracy of old maps using differential distortion analysis. International Journal of Geographical Information Science. (accepted)*  
+*Claeys Boùùaert, M., De Baets, B., Vervust, S., Neutens, T., De Maeyer, P., Van De Weghe N., 2016. Computation and visualisation of the accuracy of old maps using differential distortion analysis. International Journal of Geographical Information Science.*  
 <http://dx.doi.org/10.1080/13658816.2015.1127377>
 
 ### Sample data
