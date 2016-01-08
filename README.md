@@ -52,6 +52,8 @@ If you want use this code for scientific work, **please refer to the following p
 *Claeys Boùùaert, M., De Baets, B., Vervust, S., Neutens, T., De Maeyer, P., Van De Weghe N., 2016. Computation and visualisation of the accuracy of old maps using differential distortion analysis. International Journal of Geographical Information Science.*  
 <http://dx.doi.org/10.1080/13658816.2015.1127377>
 
+The 'Author’s Original Manuscript (AOM)' of this article is also part of this repository.
+
 ### Sample data
 
 The sample data map is courtesy of swisstopo (map collection, LT K BL 1798).   
