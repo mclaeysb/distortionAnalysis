@@ -8,14 +8,14 @@ end
 
 % Load ground control points 
 points = dlmread('data_sample/points.txt')';
-gcps_d = points(4:5,:);
-gcps_c = points(2:3,:);
+gcps_d = points(4:5,:);			% points in the 'domain'
+gcps_c = points(2:3,:);			% points in the 'codomain'
 
 % Set preferences
 spatRes_d = 500;                % Spatial Resolution in the domain when creating mesh. 500 for sample data
 spatBuffer_d = 8000;            % Spatial buffer for mesh in the codomain. 8000 for sample data
 spatResType = 'absolute';       % Are spatRes_d and spatBuffer_d input 'absolute' or 'relative' numbers (see how those are treated in distortionAnalysis)
-scalingReference = 'helmert';   % 'none' or 'helmert'
+scalingReference = 'helmert';   % Should reference value be used for a, b, sigma: 'helmert' (use value of helmert scaling as reference) or 'none' (don't use reference value)
 
 doDisplacementVectors = 1;              % Should warped grid be written out?
 doDistortionGrid = 1;                   % Should warped grid be written out?
