@@ -11,8 +11,8 @@ function distortionAnalysis(gcps_d,gcps_c,varargin)
 % gcps_d and gcps_c are expected to be 2-by-n matrices, where n is the number of ground control points
 % 
 % Nomenclature:
-% '..._d' = points in the 'domain' = 'to'-domain = 'centers' = 'reference'.
-% '..._c' = points in the 'codomain' = 'from'-domain = 'values' = 'target'.
+% '..._d' = points in the 'domain' = 'from'-domain = 'centers' = 'reference'.
+% '..._c' = points in the 'codomain' = 'to'-domain = 'values' = 'target'.
 % 'gcps' = ground control points
 % 'mps' = mesh points
 % 'aps' = all points (mps + gcps)
