@@ -20,15 +20,15 @@ For further interpretation, visualise the output documents in a (web-)GIS applic
 As an example: the visualised outputs for the sample data look like this: 
  
 **Displacement vectors**  
-![](/example_output/old_map_displacementVectors.png?raw=true)  
+![](/example_output/old_map_displacementVectors.png?raw=true = 100x)  
 **Distortion grid**  
-![](/example_output/old_map_distortionGrid.png?raw=true width="100")  
+![](/example_output/old_map_distortionGrid.png?raw=true = 100x)  
 **Indicatrices of Tissot**  
-![](/example_output/old_map_indicatrices.png?raw=true width="100")  
+![](/example_output/old_map_indicatrices.png?raw=true = 100x)  
 **Differential Distortion Analysis: area distortion `log2sigma`**  
-![](/example_output/old_map_log2sigma_scalebar.png?raw=true width="100")  
+![](/example_output/old_map_log2sigma_scalebar.png?raw=true = 100x)  
 **Differential Distortion Analysis: angular distortion `2Omega`**  
-![](/example_output/old_map_2Omega_scalebar.png?raw=true width="100")  
+![](/example_output/old_map_2Omega_scalebar.png?raw=true = 100x)  
 
 Bonus: this code can also be used in similar settings where 2D objects are warped, such as abstracted maps (e.g. transit maps), mental maps, maps of deformed terrain (glaciers, tectonics), etc. Feel inspired!
 
