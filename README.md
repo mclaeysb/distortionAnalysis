@@ -54,6 +54,11 @@ If you want use this code for scientific work, **please refer to the following p
 
 The 'Author’s Original Manuscript (AOM)' of this article is also part of this repository.
 
+If you want to learn more about the application of this technique on Farraris's 1777 Carte de Cabinet, read the following article:
+
+*Vervust, S., Claeys Boùùaert; M., De Baets; B., Van de Weghe, N., De Maeyer, P., 2018. A Study of the Local Geometric Accuracy of Count de Ferraris's Carte de cabinet (1770s) Using Differential Distortion Analysis. The Cartographic Journal*  
+<https://doi.org/10.1080/00087041.2017.1323148>
+
 ### Sample data
 
 The sample data map is courtesy of swisstopo (map collection, LT K BL 1798).   
