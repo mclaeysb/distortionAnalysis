@@ -2,6 +2,15 @@
 
 by Manuel Claeys Boùùaert
 
+> [!NOTE]
+> This distortion analysis approach, first published in 2015, has now, as of 2025, been implemented in the [Allmaps](https://allmaps.org/) project, offering a zero-setup, user friendly interface that greatly simplifies not only georeferencing maps but also inspecting their accuracy using differential distortion analysis.
+> 
+> Allmaps work with any map that is served as a [IIIF](https://iiif.io/) Resource. If your map is not available through IIIF yet, consider to use IIIF in your institution, or upload your map to a free IIIF server.
+> 
+> Use [Allmaps Editor](https://editor.allmaps.org/) to georeference maps and [Allmaps Viewer](https://viewer.allmaps.org/) to view the resulting [georeference annotation](https://preview.iiif.io/api/georef/extension/georef/). The Viewer application also allows for altering the transformation type (e.g. from *polynomial* to *thin plate spline*) and visualising distortions in the same way as in this codebase: using displacement vectors, distortion grid and *differential* approaches such as area and angular distortions. It currently only implements a *old-to-modern* comparison, showing the distortion of the old-to-modern transformation on the current, modern map.
+>
+> More information on [allmaps.org](https://allmaps.org)
+
 ## What it does
 
 This code was built to analyse distortion in old maps.
